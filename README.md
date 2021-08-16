@@ -17,13 +17,13 @@ We need two env vars:
 
 ## Initialize
 
-### Install dependencies
+### Install dependencies
 
 1. `virtualenv .env -p python3.9`
 2. `source .env/bin/activate`
 3. `pip install -r requirements.txt`
 
-### Init db
+### Init db
 
 1. `python manage.py migrate`
 2. `python manage.py createsuperuser`
