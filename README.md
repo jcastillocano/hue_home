@@ -1,8 +1,8 @@
-# hue_home
+# Hue Home
 
 Django app for managing hue lights at home. This is a test for adding extra automation at home without using Philips Hue app (which requires internet access if you want to manage your lights remotely).
 
-## External libraries
+## External libraries
 
 This project imports [hueber](https://github.com/mbaltrusitis/hueber) library for managing Hue lights through a Hue Bridge.
 
@@ -39,4 +39,4 @@ Every time you load the site it will sync up Hue Bridge with local db. After tha
 
 ## Author
 
-Juan Carlos Castillo Cano <mailto:jccastillocano@gmail.com>
+Juan Carlos Castillo Cano - <jccastillocano@gmail.com>
