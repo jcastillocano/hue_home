@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" type="text/css" href="{% static 'hue/style.css' %}"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+      .title {
+        font-family: 'Indie Flower', serif;
+        font-size: 30px;
+        color: #1E90FF;
+      }
+      h1 {
+        font-family: 'Pacifico', serif;
+        font-size: 45px;
+        color: #1E90FF;
+      }  
+    </style>
+</head>
+<body>
+<div class="container"><h1>Home lights</h1><br>
+  <ul>
+    {% for light in lights %}
+    <li><span style="color:{% if light.reachable == 'Online' %}blue{% else %}grey{% endif %}"><b>{{ light.name }}</b> [{{ light.reachable }}]</span> {% if light.reachable == 'Online' %}
+        <form class="form-inline" action="{% url 'update' light.light_id %}" method="post">{% csrf_token %}
+	  <div class="form-group">
+		  <label for="on{{ light.light_id }}">{% if light.on %}<span style="color:blue">On</span>{% else %}<span style="color:red">Off</span>{% endif %}</label><br>
+		  <input class="checkbox" type="checkbox" name="on" id="on{{ light.light_id }}" value="checked" {% if light.on %}checked{% endif %} style="color:{% if light.on %}blue{% else %}red{% endif %}">
+    </div>
+	  <div class="form-group">
+            <label for="value{{ light.light_id }}">Light</label>
+	    <div class="input-group">
+	      <span class="input-group-addon">%</span>
+              <input class="form-control" type="number" name="value" id="value{{ light.light_id }}" min="1" max="100" value="{{ light.value}}">
+	    </div>
+	  </div>
+	  <button type="submit" class="btn btn-{% if light.on %}info{% else %}danger{% endif %}">Update</button>
+        </form>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+</html>

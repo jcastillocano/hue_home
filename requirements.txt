@@ -1,0 +1,5 @@
+hueber
+docopt
+pycryptodome
+tinytuya
+Django

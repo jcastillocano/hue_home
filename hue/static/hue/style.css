@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif;
+  background: white url("bulbs.jpeg") no-repeat;
+}
+
+.form-inline .form-control {
+    display: inline-block !important;
+    width: auto!important
+}
