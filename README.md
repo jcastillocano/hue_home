@@ -25,7 +25,7 @@ We need two env vars:
 
 For linter install `test_requirements.txt` as well (see Linter section below)
 
-### Init db
+### Init db
 
 1. `python manage.py migrate`
 2. `python manage.py createsuperuser`
@@ -35,7 +35,7 @@ For linter install `test_requirements.txt` as well (see Linter section below)
 1. `python manager.py runserver [optional: <host 0.0.0.0>:<port 8000>]`
 2. Open browser at http://localhost:8000/
 
-### Linter
+### Linter
 
 We use [black](https://github.com/psf/black) for formatting python files.
 
