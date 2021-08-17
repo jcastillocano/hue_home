@@ -47,6 +47,12 @@
       </li>
     {% endfor %}
   </ul>
+{% if switchoff > 0 %}<form class="form-inline" action="{% url 'shutdown' %}" method="post">{% csrf_token %}
+	<div class="form-group">
+		<button type="submit" class="btn btn-warning">Switch off all</button>
+	</div>
+</form>
+{% endif %}
 </div>
 </body>
 </html>

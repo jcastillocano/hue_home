@@ -45,9 +45,8 @@ def sync(request):
             )
         obj.save()
      
-    context = {'lights': Light.objects.all()}
+    context = {'lights': Light.objects.all(), 'switchoff': Light.objects.filter(on=True).count()}
     return render(request, 'hue/index.html', context)
-
 
 def update(request, light_id):
     post = request.POST
@@ -67,3 +66,11 @@ def update(request, light_id):
     print('Light %s updated' % light_id)
     return HttpResponseRedirect(reverse('list', args=()))
 
+def shutdown(request):
+    hue = Bridge(HUE_HOST, HUE_TOKEN)
+    for light in Light.objects.filter(on=True):
+        update = LightBuilder()
+        update['on'] = False
+        print('Switching off %s light' % light.light_id)
+        hue.lights[light.light_id].push(update.update_str())
+    return HttpResponseRedirect(reverse('list', args=()))
