@@ -1,0 +1,16 @@
+name: Linter
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  black_linter:
+    steps:
+      - name: Black Code Formatter
+        uses: lgeiger/black-action@v1.0.1
+        with:
+          args: '--check'
+

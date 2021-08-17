@@ -7,19 +7,46 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Light',
+            name="Light",
             fields=[
-                ('id', models.IntegerField(primary_key=True, serialize=False, verbose_name='Light id in Hue')),
-                ('name', models.CharField(max_length=30, verbose_name='Light name in Hue')),
-                ('on', models.BooleanField(default=False, verbose_name='Light is on/off')),
-                ('reachable', models.CharField(choices=[('Online', 'Online'), ('Offline', 'Offline')], default='Offline', max_length=8, verbose_name='Online/Offline')),
-                ('type', models.CharField(default='Dimmable light', max_length=30, verbose_name='Light type')),
-                ('value', models.IntegerField(default=1, verbose_name='Light value')),
+                (
+                    "id",
+                    models.IntegerField(
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="Light id in Hue",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=30, verbose_name="Light name in Hue"),
+                ),
+                (
+                    "on",
+                    models.BooleanField(default=False, verbose_name="Light is on/off"),
+                ),
+                (
+                    "reachable",
+                    models.CharField(
+                        choices=[("Online", "Online"), ("Offline", "Offline")],
+                        default="Offline",
+                        max_length=8,
+                        verbose_name="Online/Offline",
+                    ),
+                ),
+                (
+                    "type",
+                    models.CharField(
+                        default="Dimmable light",
+                        max_length=30,
+                        verbose_name="Light type",
+                    ),
+                ),
+                ("value", models.IntegerField(default=1, verbose_name="Light value")),
             ],
         ),
     ]
