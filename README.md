@@ -23,6 +23,8 @@ We need two env vars:
 2. `source .env/bin/activate`
 3. `pip install -r requirements.txt`
 
+For linter install `test_requirements.txt` as well (see Linter section below)
+
 ### Init db
 
 1. `python manage.py migrate`
@@ -32,6 +34,15 @@ We need two env vars:
 
 1. `python manager.py runserver [optional: <host 0.0.0.0>:<port 8000>]`
 2. Open browser at http://localhost:8000/
+
+### Linter
+
+We use [black](https://github.com/psf/black) for formatting python files.
+
+ * Check `black . --check`
+ * Format files `black .` 
+
+NOTE: we have github action configured for linting all python files.
 
 ## Usage
 
