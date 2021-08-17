@@ -10,6 +10,7 @@ jobs:
   black_linter:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: Black Code Formatter
         uses: lgeiger/black-action@v1.0.1
         with:
